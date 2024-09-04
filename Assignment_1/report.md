@@ -21,8 +21,14 @@ The evaluation does not handle the case of division by zero. If the expression c
 
 # Task 2: Pretty printer for arithmetic expressions
 
+We are to write a function string_of_expr that has type expr -> string for pretty printing arithmetic expressions.
+
+The solution is provided in pretty.ml. It includes a test function which tests the provided examples from the task description.
+
 ## Question 4:
 Are the functions you have defined recursive, and why (or why not)?
+
+The function string_of_expr is recursive for the same reason as the evaluator. Handling it a tree structure is simpler, as you can match on the different cases of the expression and then recursively call the function on the subexpressions. This is done until the base case is reached, which is when the expression is a constant, in which case the function simply returns the constant as a string.
 
 ## Question 5 (glory):
 Make sure you avoid unnecessary parentheses, assuming standard precedence. Explain how you implement this.
