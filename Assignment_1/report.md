@@ -45,4 +45,9 @@ Could we have used text instead of gtext? Why?
 
 Since gtext marks the label as global, it can be accessed from other modules. If we used text instead of gtext, the label would not be global, and it would not be accessible from other modules. Therefore, if we used text instead of gtext, the label would not be global which is not the intended behavior in this case.
 
+## Question 9:
+What output do you get from echo $? when returning the value 2023?
+
+We get the integer 231. This is because the return value overflows and wraps around to fit into a single byte. This is because the return value is an unsigned 8-bit integer, and it can therefore only hold values from 0 to 255. If the return value is greater than 255, it will overflow and wrap around to fit into a single byte.
+
 # Task 3: Translate the following 5 OCaml expressions to assembly
