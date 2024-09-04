@@ -120,4 +120,6 @@ Expression 4: 53940
 Expression 5: 0
 ```
 
-We can that the results of the assembly programs almost match the results of the evaluation function. The only difference is in the result of expression 4, which is 53940 in the evaluation function and 52767 in the assembly program. Wolfram alpha calculates the expression to 54485.175, which means both the evaluator and the assembly program are incorrect. The assembly program is incorrect because it uses 8-bit registers, which causes overflow. The evaluator is incorrect because it uses integer division, which causes truncation.
+We can that the results of the assembly programs almost match the results of the evaluation function. The only difference is in the result of expression 4, which is 53940 in the evaluation function and 52767 in the assembly program. Wolfram alpha calculates the expression to 54485.175, which means both the evaluator and the assembly program are incorrect.
+
+The evaluator is incorrect because it uses integer division, which causes truncation of the result. The assembly program is also partly incorrect because of this, although i suspect there is another issue in the code. I am unable to make it calculate the expression correctly even though i tried thorougly.
