@@ -54,4 +54,18 @@ What output do you get from ```echo $?``` when returning the value 2023?
 
 We get the integer 231. This is because the return value overflows and wraps around to fit into a single byte. This is because the return value is an unsigned 8-bit integer, and it can therefore only hold values from 0 to 255. If the return value is greater than 255, it will overflow and wrap around to fit into a single byte.
 
-# Task 3: Translate the following 5 OCaml expressions to assembly
+# Task 3: Translate OCaml expressions to assembly
+
+Consider the following OCaml expressions:
+
+```ocaml
+let task3_exp1 = BinOp (Add, Int 20, BinOp (Mul, Int 26, Int 58))
+let task3_exp2 = BinOp (Mul, Int 5, BinOp (Div, Int 1, Int 10))
+let task3_exp3 = BinOp (Sub, Int 31, Int 870)
+let task3_exp4 = BinOp (Mul, BinOp (Add, BinOp (Div, Int 6, BinOp (Add, Int 10, Int 49)), Int 10), BinOp (Add, BinOp (Sub, BinOp (Mul, Int 70, Int 77), BinOp (Div, Int 12, Int 9)), Int 5))
+let task3_exp5 = BinOp (Sub, BinOp (Div, Int 34, Int 72), BinOp (Div, Int 17, Int 46))
+```
+
+We are to translate these OCaml expressions to assembly instructions manually. Afterwards, we will cross reference the outputs of the assembly programs with our evaluation function to verify that the assembly programs are correct.
+
+The solution is provided in ```asm.ml```. It includes a ```print_asm``` function which prints the assembly instructions for the OCaml expressions.

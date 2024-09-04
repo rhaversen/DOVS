@@ -1,8 +1,23 @@
-/* main.c: C wrapper for our assembly program */
 #include <stdio.h>
-extern int example (); /*  the name of our function */
+
+// Function declarations
+extern long task3_exp1();
+extern long task3_exp2();
+extern long task3_exp3();
+extern long task3_exp4();
+extern long task3_exp5();
 
 int main() {
-    int result = example();
-    return result;
+    // Call each assembly function and print the results
+    printf("Result of task3_exp1: %ld\n", task3_exp1());
+    printf("Result of task3_exp2: %ld\n", task3_exp2());
+    printf("Result of task3_exp3: %ld\n", task3_exp3());
+    printf("Result of task3_exp4: %ld\n", task3_exp4());
+    printf("Result of task3_exp5: %ld\n", task3_exp5());
+
+    return 0;
+}
+
+void print_int (int x) {
+    printf ("%d\n", x);
 }

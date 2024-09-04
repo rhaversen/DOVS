@@ -1,0 +1,61 @@
+open X86
+
+let task3_asm =
+  let open Asm in
+  [ gtext "task3_exp1"  (* 20 + (26 * 58) *)
+      [ (Movq, [~$ 26; ~% Rax])
+      ; (Imulq, [~$ 58; ~% Rax])
+      ; (Addq, [~$ 20; ~% Rax])
+      ; (Retq, [])
+      ]
+  ; gtext "task3_exp2"  (* 5 * (1 / 10) *)
+      [ (Movq, [~$ 1; ~% Rax])
+      ; (Movq, [~$ 10; ~% Rbx])
+      ; (Cqto, [])
+      ; (Idivq, [~% Rbx])
+      ; (Imulq, [~$ 5; ~% Rax])
+      ; (Retq, [])
+      ]
+  ; gtext "task3_exp3"  (* 31 - 870 *)
+      [ (Movq, [~$ 31; ~% Rax])
+      ; (Subq, [~$ 870; ~% Rax])
+      ; (Retq, [])
+      ]
+  ; gtext "task3_exp4"  (* Complex expression *)
+      [ (Movq, [~$ 10; ~% Rax])
+      ; (Addq, [~$ 49; ~% Rax])
+      ; (Movq, [~$ 6; ~% Rbx])
+      ; (Cqto, [])
+      ; (Idivq, [~% Rax])
+      ; (Addq, [~$ 10; ~% Rax])
+      ; (Pushq, [~% Rax])
+      ; (Movq, [~$ 70; ~% Rax])
+      ; (Imulq, [~$ 77; ~% Rax])
+      ; (Movq, [~$ 12; ~% Rbx])
+      ; (Movq, [~$ 9; ~% Rcx])
+      ; (Cqto, [])
+      ; (Idivq, [~% Rcx])
+      ; (Subq, [~% Rax; ~% Rbx])
+      ; (Addq, [~$ 5; ~% Rbx])
+      ; (Popq, [~% Rax])
+      ; (Imulq, [~% Rbx; ~% Rax])
+      ; (Retq, [])
+      ]
+  ; gtext "task3_exp5"  (* (34 / 72) - (17 / 46) *)
+      [ (Movq, [~$ 34; ~% Rax])
+      ; (Movq, [~$ 72; ~% Rbx])
+      ; (Cqto, [])
+      ; (Idivq, [~% Rbx])
+      ; (Pushq, [~% Rax])
+      ; (Movq, [~$ 17; ~% Rax])
+      ; (Movq, [~$ 46; ~% Rbx])
+      ; (Cqto, [])
+      ; (Idivq, [~% Rbx])
+      ; (Popq, [~% Rbx])
+      ; (Subq, [~% Rax; ~% Rbx])
+      ; (Retq, [])
+      ]
+  ]
+
+(* Print the assembly code to standard output *)
+let print_asm () = Printf.printf "%s\n" (string_of_prog task3_asm)

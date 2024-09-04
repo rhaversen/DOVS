@@ -1,6 +1,6 @@
 open Eval
 open PrettyPrinter
-open Asm_example
+open AsmTask
 
 let () =
   Printf.printf "Running tests from Eval module:\n";
@@ -10,6 +10,6 @@ let () =
   Printf.printf "Running tests from PrettyPrinter module:\n";
   PrettyPrinter.test ();
   Printf.printf "\n";
-
-  Printf.printf "Printing the example assembly code:\n";
-  Asm_example.printExample ()
+  
+  Printf.printf "Printing the assembly code for task 3:\n";
+  AsmTask.print_asm ()
