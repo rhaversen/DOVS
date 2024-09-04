@@ -1,3 +1,29 @@
+# Assignment 1
+
+To compile the code, run 
+
+```bash
+make
+```
+
+To run the compiled code (which runs tests for task 1 and 2, and prints the translated assembly code for task 1 and 2), run
+
+```bash
+./main.native
+```
+
+The printed assembly code for task 3 is provided in ```asmTask.s```. To compile the assembly code, run
+
+```bash
+clang main.c asmTask.s
+```
+
+Then, to run the compiled assembly code (which prints the outputs of the expressions in ascending order), run
+
+```bash
+./a.out
+```
+
 # Task 1: Evaluator for arithmetic expressions
 
 We are to write a function ```eval``` that has type ```expr -> int``` for evaluating arithmetic expressions.
