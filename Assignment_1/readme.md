@@ -6,7 +6,7 @@ To compile the code, run
 make
 ```
 
-To run the compiled code (which runs tests for task 1 and 2, prints the translated assembly code for task 1 and 2 and prints the evaluations for task 3), run
+To run the compiled code (which runs tests for task 1 and 2, prints the translated assembly code for task 1 and 2 and prints the evaluated expressions for task 3), run
 
 ```bash
 ./main.native
