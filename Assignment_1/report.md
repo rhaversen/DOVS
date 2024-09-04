@@ -9,12 +9,12 @@ The solution works by recursively evaluating the expression. The function patter
 ## Question 1:
 Does this function need to recursively explore its argument, and why (or why not)?
 
-Yes, this function needs to be recursive. This is because the expression is a tree structure, and the function needs to traverse the tree to evaluate the expression. The function needs to recursively evaluate the left and right subexpressions of the expression, and then combine the results according to the operator. This is done by calling the eval function on the left and right subexpressions, and then applying the operator to the results. This is done recursively until the base case is reached, which is when the expression is a constant, in which case the function simply returns the constant.
+Yes, this function needs to be recursive. This is because the expression is a tree structure, and the function needs to traverse the tree to evaluate the expression. The function needs to recursively evaluate the left and right subexpressions of the expression, and then combine the results according to the operator. This is done by calling the eval function on the left and right subexpressions, and then applying the operator to the results recursively until the base case is reached, which is when the expression is a constant, in which case the function simply returns the constant.
 
 ## Question 2:
 Why does this function have the return type int? What other return types may be suitable?
 
-The function has the return type int because the expression is an arithmetic expression, and the result of evaluating an arithmetic expression is an integer. The function evaluates the expression and returns the result as an integer. Other return types that may be suitable are float and bool, depending on the type of the expression. 
+The function has the return type int because the expression is an arithmetic expression, and the result of evaluating an arithmetic expression is an integer. Other return types that may be suitable are float and bool, depending on the type of the expression. 
 
 ## Question 3:
 How does your evaluation handle the case of division by zero? Note that it may be just fine to not special-treat division by zero, but it is important you understand what actually happens at runtime.
@@ -47,7 +47,7 @@ To rewrite this to use the Asm module without the local module open directive, w
 ## Question 8:
 Could we have used text instead of gtext? Why?
 
-Since gtext marks the label as global, it can be accessed from other modules. If we used text instead of gtext, the label would not be global, and it would not be accessible from other modules. Therefore, if we used text instead of gtext, the label would not be global which is not the intended behavior in this case.
+Since gtext marks the label as global, it can be accessed from other modules. If we used text instead of gtext, the label would not be global, and it would not be accessible from other modules, and the label would therefore not be global which is not the intended behavior.
 
 ## Question 9:
 What output do you get from echo $? when returning the value 2023?
