@@ -27,7 +27,7 @@ We are to write a function string_of_expr that has type expr -> string for prett
 
 The solution is provided in pretty.ml. It includes a test function which tests the provided examples from the task description.
 
-The solution works by recursively traversing the expression tree and building a string representation of the expression. The function pattern matches on the expression to determine the type of the expression, in similar fashion to the eval function. If the expression is a constant, the function simply returns the constant as a string. 
+The solution works by recursively traversing the expression tree and building a string representation of the expression. The function pattern matches on the expression to determine the type of the expression, in similar fashion to the eval function. If the expression is a constant, the function simply returns the constant as a string. If the expression is a binop, the function recursively calls itself on the left and right subexpressions and then combines the results with the operator. The function then returns the combined string.
 
 ## Question 4:
 Are the functions you have defined recursive, and why (or why not)?
