@@ -30,9 +30,6 @@ Are the functions you have defined recursive, and why (or why not)?
 
 The function string_of_expr is recursive for the same reason as the evaluator. Handling it a tree structure is simpler, as you can match on the different cases of the expression and then recursively call the function on the subexpressions. This is done until the base case is reached, which is when the expression is a constant, in which case the function simply returns the constant as a string.
 
-## Question 5 (glory):
-Make sure you avoid unnecessary parentheses, assuming standard precedence. Explain how you implement this.
-
 ## Question 6:
 What is the OCaml type of asm_example?
 
