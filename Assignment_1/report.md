@@ -4,6 +4,8 @@ We are to write a function eval that has type expr -> int for evaluating arithme
 
 The solution is provided in eval.ml. It includes a test function which tests the provided examples from the task description.
 
+The solution works by recursively evaluating the expression. The function pattern matches on the expression to determine the type of the expression. If the expression is a constant, the function simply returns the constant.
+
 ## Question 1:
 Does this function need to recursively explore its argument, and why (or why not)?
 
@@ -24,6 +26,8 @@ The evaluation does not handle the case of division by zero. If the expression c
 We are to write a function string_of_expr that has type expr -> string for pretty printing arithmetic expressions.
 
 The solution is provided in pretty.ml. It includes a test function which tests the provided examples from the task description.
+
+The solution works by recursively traversing the expression tree and building a string representation of the expression. The function pattern matches on the expression to determine the type of the expression, in similar fashion to the eval function. If the expression is a constant, the function simply returns the constant as a string. 
 
 ## Question 4:
 Are the functions you have defined recursive, and why (or why not)?
