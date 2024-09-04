@@ -4,7 +4,7 @@ We are to write a function eval that has type expr -> int for evaluating arithme
 
 The solution is provided in eval.ml. It includes a test function which tests the provided examples from the task description.
 
-The solution works by recursively evaluating the expression. The function pattern matches on the expression to determine the type of the expression. If the expression is a constant, the function simply returns the constant.
+The solution works by recursively evaluating the expression. The function pattern matches on the expression to determine the type of the expression. If the expression is a constant, the function simply returns the constant, and if the expression is a binop, it matches with the operator and evaluates the left and right subexpressions recursively. The function then applies the operator to the results of the left and right subexpressions and returns the result.
 
 ## Question 1:
 Does this function need to recursively explore its argument, and why (or why not)?
