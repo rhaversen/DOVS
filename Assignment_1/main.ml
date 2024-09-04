@@ -15,5 +15,5 @@ let () =
   AsmTask.print_asm ();
   Printf.printf "\n";
 
-  Printf.printf "Printing the evaluation of the assembly code for task 3:\n";
+  Printf.printf "Printing the evaluation of the expressions for task 3:\n";
   Eval.eval_asm ()
