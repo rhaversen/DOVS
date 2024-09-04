@@ -33,10 +33,16 @@ The function string_of_expr is recursive for the same reason as the evaluator. H
 ## Question 6:
 What is the OCaml type of asm_example?
 
+The OCaml type of asm_example is prog, which is defined as an elem list. The type of elem is defined as a tuple of label of type string, flag global of type bool, and an asm instruction. Therefore, it is a list of tuples that contain assembly instructions or labeled data. 
+
 ## Question 7:
 How would you rewrite this to use the Asm module without the local module open directive?
 
+To rewrite this to use the Asm module without the local module open directive, we would need to reference the Asm module explicitly by prefixing the functions and types from the Asm module with Asm. For example, we would write Asm.text instead of text, and Asm.gtext instead of gtext. This is because the functions and types from the Asm module are not in scope, so we need to explicitly reference them by prefixing them with Asm.
+
 ## Question 8:
 Could we have used text instead of gtext? Why?
+
+Since gtext marks the label as global, it can be accessed from other modules. If we used text instead of gtext, the label would not be global, and it would not be accessible from other modules. Therefore, if we used text instead of gtext, the label would not be global which is not the intended behavior in this case.
 
 # Task 3: Translate the following 5 OCaml expressions to assembly
