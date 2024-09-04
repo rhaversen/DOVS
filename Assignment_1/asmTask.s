@@ -47,10 +47,12 @@ task3_exp4:
         pushq   %rax
         movq    $70, %rax
         imulq   $77, %rax
+        pushq   %rax
         movq    $12, %rbx
         movq    $9, %rcx
         cqto
         idivq   %rcx
+        popq    %rbx
         subq    %rax, %rbx
         addq    $5, %rbx
         popq    %rax

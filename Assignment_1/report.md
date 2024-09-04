@@ -96,13 +96,13 @@ We are to translate these OCaml expressions to assembly instructions manually. A
 
 The solution is provided in ```asm.ml``` and the subsequently printed code is provided in ```asmTask.s```. It includes a ```print_asm``` function which prints the assembly instructions for the OCaml expressions. Documentation for the code is included in ```asm.ml```.
 
-The results of the assmelby code are as follows:
+The results of the assembly code are as follows:
 
 ```
 1528
 0
 -839
--6391
+52767
 0
 ```
 
@@ -115,3 +115,5 @@ Expression 3: -839
 Expression 4: 53940
 Expression 5: 0
 ```
+
+We can that the results of the assembly programs almost match the results of the evaluation function. The only difference is in the result of expression 4, which is 53940 in the evaluation function and 52767 in the assembly program. Wolfram alpha calculates the expression to 54485.175, which means both the evaluator and the assembly program are incorrect. The assembly program is incorrect because it uses 8-bit registers, which causes overflow. The evaluator is incorrect because it uses integer division, which causes truncation.
