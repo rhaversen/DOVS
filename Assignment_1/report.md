@@ -68,4 +68,4 @@ let task3_exp5 = BinOp (Sub, BinOp (Div, Int 34, Int 72), BinOp (Div, Int 17, In
 
 We are to translate these OCaml expressions to assembly instructions manually. Afterwards, we will cross reference the outputs of the assembly programs with our evaluation function to verify that the assembly programs are correct.
 
-The solution is provided in ```asm.ml```. It includes a ```print_asm``` function which prints the assembly instructions for the OCaml expressions.
+The solution is provided in ```asm.ml``` and the subsequently printed code is provided in ```asmTask.s```. It includes a ```print_asm``` function which prints the assembly instructions for the OCaml expressions.
