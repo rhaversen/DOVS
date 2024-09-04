@@ -86,7 +86,7 @@ We get the integer 231. This is because the return value overflows and wraps aro
 
 # Task 3: Translate OCaml expressions to assembly
 
-Consider the following OCaml expressions:
+We are given the following OCaml expressions:
 
 ```ocaml
 let task3_exp1 = BinOp (Add, Int 20, BinOp (Mul, Int 26, Int 58))
