@@ -6,7 +6,7 @@ To compile the code, run
 make
 ```
 
-To run the compiled code (which runs tests for task 1 and 2, and prints the translated assembly code for task 1 and 2), run
+To run the compiled code (which runs tests for task 1 and 2, prints the translated assembly code for task 1 and 2 and prints the evaluations for task 3), run
 
 ```bash
 ./main.native
@@ -28,7 +28,7 @@ Then, to run the compiled assembly code (which prints the outputs of the express
 
 We are to write a function ```eval``` that has type ```expr -> int``` for evaluating arithmetic expressions.
 
-The solution is provided in ```eval.ml```. It includes a test function which tests the provided examples from the task description.
+The solution is provided in ```eval.ml```. It includes a test function which tests the provided examples from the task description. It also includes a function ```eval_asm``` which is used for task 3.
 
 The solution works by recursively evaluating the expression. The function pattern matches on the expression to determine the type of the expression. If the expression is a constant, the function simply returns the constant, and if the expression is a binop, it matches with the operator and evaluates the left and right subexpressions recursively. The function then applies the operator to the results of the left and right subexpressions and returns the result.
 

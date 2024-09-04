@@ -37,4 +37,19 @@ let test () =
 	test_case expression_01 5;
 	test_case expression_02 6;
 	test_case expression_03 8;
-	test_case expression_04 6
+	test_case expression_04 6;;
+
+(* Arithmetic expressions for task 3 *)
+let task3_exp1 = BinOp (Add, Int 20, BinOp (Mul, Int 26, Int 58))
+let task3_exp2 = BinOp (Mul, Int 5, BinOp (Div, Int 1, Int 10))
+let task3_exp3 = BinOp (Sub, Int 31, Int 870)
+let task3_exp4 = BinOp (Mul, BinOp (Add, BinOp (Div, Int 6, BinOp (Add, Int 10, Int 49)), Int 10), BinOp (Add, BinOp (Sub, BinOp (Mul, Int 70, Int 77), BinOp (Div, Int 12, Int 9)), Int 5))
+let task3_exp5 = BinOp (Sub, BinOp (Div, Int 34, Int 72), BinOp (Div, Int 17, Int 46))
+
+(* Function to run the evaluations for task 3 *)
+let eval_asm () = 
+	Printf.printf "Expression 1: %d\n" (eval task3_exp1);
+	Printf.printf "Expression 2: %d\n" (eval task3_exp2);
+	Printf.printf "Expression 3: %d\n" (eval task3_exp3);
+	Printf.printf "Expression 4: %d\n" (eval task3_exp4);
+	Printf.printf "Expression 5: %d\n" (eval task3_exp5);;
