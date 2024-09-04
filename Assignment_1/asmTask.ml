@@ -87,5 +87,5 @@ let task3_asm =
       ]
   ]
 
-(* Print the assembly code to standard output *)
+(* Print the assembly code *)
 let print_asm () = Printf.printf "%s\n" (string_of_prog task3_asm)
