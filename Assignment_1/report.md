@@ -32,6 +32,8 @@ The solution is provided in ```eval.ml```. It includes a test function which tes
 
 The solution works by recursively evaluating the expression. The function pattern matches on the expression to determine the type of the expression. If the expression is a constant, the function simply returns the constant, and if the expression is a binop, it matches with the operator and evaluates the left and right subexpressions recursively. The function then applies the operator to the results of the left and right subexpressions and returns the result.
 
+The tests are implemented with a function ```test_case``` which takes an expression and the expected result as arguments. The function then calls ```string_of_expr``` with each expression and compares the result with the expected result. If the result matches the expected result, the test passes, otherwise the test fails. The test result is printed.
+
 ## Question 1:
 Does this function need to recursively explore its argument, and why (or why not)?
 
@@ -54,6 +56,8 @@ We are to write a function ```string_of_expr``` that has type ```expr -> string`
 The solution is provided in ```pretty.ml```. It includes a test function which tests the provided examples from the task description.
 
 The solution works by recursively traversing the expression tree and building a string representation of the expression. The function pattern matches on the expression to determine the type of the expression, in similar fashion to the eval function. If the expression is a constant, the function simply returns the constant as a string. If the expression is a binop, the function recursively calls itself on the left and right subexpressions and then combines the results with the operator. The function then returns the combined string.
+
+The test works similarly to the test in the eval function. It uses a function ```test_case``` which takes an expression and the expected result as arguments. The function then calls the ```string_of_expr``` function on the expression and compares the result with the expected result. If the result matches the expected result, the test passes, otherwise the test fails. The test result is printed.
 
 ## Question 4:
 Are the functions you have defined recursive, and why (or why not)?
