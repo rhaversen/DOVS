@@ -4,6 +4,11 @@ task3_exp1:
         movq    $26, %rax
         imulq   $58, %rax
         addq    $20, %rax
+        pushq   %rbp
+        movq    %rax, %rdi
+        callq   print_int
+        popq    %rbp
+        movq    $0, %rax
         retq
         .text
         .globl  task3_exp2
@@ -13,12 +18,22 @@ task3_exp2:
         cqto
         idivq   %rbx
         imulq   $5, %rax
+        pushq   %rbp
+        movq    %rax, %rdi
+        callq   print_int
+        popq    %rbp
+        movq    $0, %rax
         retq
         .text
         .globl  task3_exp3
 task3_exp3:
         movq    $31, %rax
         subq    $870, %rax
+        pushq   %rbp
+        movq    %rax, %rdi
+        callq   print_int
+        popq    %rbp
+        movq    $0, %rax
         retq
         .text
         .globl  task3_exp4
@@ -40,6 +55,11 @@ task3_exp4:
         addq    $5, %rbx
         popq    %rax
         imulq   %rbx, %rax
+        pushq   %rbp
+        movq    %rax, %rdi
+        callq   print_int
+        popq    %rbp
+        movq    $0, %rax
         retq
         .text
         .globl  task3_exp5
@@ -55,4 +75,9 @@ task3_exp5:
         idivq   %rbx
         popq    %rbx
         subq    %rax, %rbx
+        pushq   %rbp
+        movq    %rbx, %rdi
+        callq   print_int
+        popq    %rbp
+        movq    $0, %rax
         retq

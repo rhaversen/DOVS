@@ -8,13 +8,12 @@ extern long task3_exp4();
 extern long task3_exp5();
 
 int main() {
-    // Call each assembly function and print the results
-    printf("Result of task3_exp1: %ld\n", task3_exp1());
-    printf("Result of task3_exp2: %ld\n", task3_exp2());
-    printf("Result of task3_exp3: %ld\n", task3_exp3());
-    printf("Result of task3_exp4: %ld\n", task3_exp4());
-    printf("Result of task3_exp5: %ld\n", task3_exp5());
-
+    // Call each assembly function
+    task3_exp1();
+    task3_exp2();
+    task3_exp3();
+    task3_exp4();
+    task3_exp5();
     return 0;
 }
 
