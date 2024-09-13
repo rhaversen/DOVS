@@ -1,5 +1,6 @@
 open PrettyPrinter
 open SemanticAnalysis
+open Eval
 
 let () =
   Printf.printf "Running tests from PrettyPrinter module:\n";
@@ -8,3 +9,7 @@ let () =
 
   Printf.printf "Running tests from SemanticAnalysis module:\n";
   SemanticAnalysis.test ();
+  Printf.printf "\n";
+
+  Printf.printf "Running tests from Eval module:\n";
+  Eval.test ();

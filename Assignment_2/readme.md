@@ -6,7 +6,7 @@ To compile the code, run
 make
 ```
 
-To run the compiled code (which runs tests for task 1 and 2), run
+To run the compiled code (which runs tests for task 1 and 2 and 3), run
 
 ```bash
 ./main.native
@@ -41,3 +41,53 @@ We have defined an auxiliary functions ```process_stmts``` and ```process_expr``
 Describe how you keep track of variable declarations in your implementation. What data structure(s) do you use?
 
 We keep track of variable declarations using a list of variable names ```(declared_vars)```. This list is updated as we recursively process the program's statements and expressions. The data structure used is a list of strings, where each string represents a declared variable name.
+
+# Task 3: Evaluation of expression programs
+
+We are to write a function ```eval``` that has type ```eprog -> int``` for evaluating expression programs. We a given a a function ```eprog_input``` for evaluating the input statements:
+
+```ocaml
+let eprog_input() 
+   = Printf.printf "Please enter an integer: " ; read_line () |> int_of_string
+```
+
+The solution is provided in ```eval.ml```. It includes a test function which tests the provided examples from the task description. It also includes functions with an input statement to test the input functionality. Check out the implementation for those programs to validate the result manually.
+
+## Question 4:
+
+In the given code, ```;``` is the OCaml sequencing and ```|>``` is the OCaml pipeline operator. How would you write the implementation of ```eprog_input``` using just the ```let``` expressions without these operators?
+
+We can write the implementation of ```eprog_input``` using just the ```let``` expressions without the ```;``` and ```|>``` operators as follows:
+
+```ocaml
+let eprog_input () = 
+  let () = Printf.printf "Please enter an integer: " in
+  let input = read_line () in
+  int_of_string input
+```
+
+The first ```let``` expression prints the prompt message, and the second ```let``` expression reads the input as a string. The third line converts the input string to an integer using the ```int_of_string``` function.
+
+## Question 6:
+
+What data structure(s) do you use in the implementation of the interpreter?
+
+We use a list for the environment to store the variable bindings. The environment is a list of tuples ```(varname, value)``` where ```varname``` is the variable name and ```value``` is the integer value of the variable. The environment is updated as we evaluate the program's statements and expressions.
+
+## Question 7:
+
+What runtime errors are possible during the execution of your interpreter? Are they preventable, and how?
+
+Yes, there are possible runtime errors during the execution of the interpreter. Some of the possible runtime errors are:
+
+1. Division by zero: If the program contains a division operation with a divisor of zero, it will result in a division by zero error caused by the ```Div``` operation.
+
+This can not be resolved by the interpreter, as it is a runtime error. The program should be modified to avoid division by zero.
+
+2. Variable not found: If the program contains a variable that is not declared, it will result in a variable not found error caused by ```List.assoc``` function.
+
+This can be resolved by performing semantic analysis before evaluating the program to check for undeclared variables.
+
+3. Input Conversion Error: If the input provided by the user is not a valid integer, it will result in an input conversion error caused by the ```int_of_string``` function.
+
+This can be resolved by validating the input before converting it to an integer, and prompt the user repeatedly until a valid integer is entered.
