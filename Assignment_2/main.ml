@@ -1,6 +1,7 @@
 open PrettyPrinter
 open SemanticAnalysis
 open Eval
+open AsmTask
 
 let () =
   Printf.printf "Running tests from PrettyPrinter module:\n";
@@ -13,3 +14,7 @@ let () =
 
   Printf.printf "Running tests from Eval module:\n";
   Eval.test ();
+  Printf.printf "\n";
+
+  Printf.printf "Running tests from AsmTask module:\n";
+  AsmTask.test ()

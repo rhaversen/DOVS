@@ -6,10 +6,22 @@ To compile the code, run
 make
 ```
 
-To run the compiled code (which runs tests for task 1 and 2 and 3), run
+To run the compiled code (which runs tests for task 1 and 2 and 3, and prints the assembly code for some example programgs for task 4), run
 
 ```bash
 ./main.native
+```
+
+The printed assembly code for task 4 (With corrected function names) is provided in ```asmTask.s```. To compile the assembly code, run
+
+```bash
+clang main.c asmTask.s
+```
+
+Then, to run the compiled assembly code (which prints the outputs of the expressions in ascending order), run
+
+```bash
+./a.out
 ```
 
 # Task 1: Pretty printer for expression programs
@@ -91,3 +103,11 @@ This can be resolved by performing semantic analysis before evaluating the progr
 3. Input Conversion Error: If the input provided by the user is not a valid integer, it will result in an input conversion error caused by the ```int_of_string``` function.
 
 This can be resolved by validating the input before converting it to an integer, and prompt the user repeatedly until a valid integer is entered.
+
+# Task 4: Compiling expression programl to x86
+
+We are to write a function ```eprog_to_x86``` that has type ```eprog -> X86.prog``` for compiling expression programs to x86 assembly code.
+
+The solution is provided in ```asmTask.ml```. It includes a test function which tests some example programs. The compiled assembly code is printed to the console, and also written to a file ```asmTask.s```.
+
+At this point, i ran out of time to complete the rest of the assignment.
