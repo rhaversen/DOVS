@@ -101,3 +101,21 @@ The output will be the same as in the previous task:
 496: perfect
 8128: perfect
 ```
+
+### Question 1
+
+- How many basic block does your program have? Explain how you count basic blocks.
+
+The program has 9 basic blocks. The blocks consist of the following:
+
+1. entry
+2. while_cond
+3. while_body
+4. for_cond
+5. for_body
+6. for_end
+7. if_then
+8. if_end
+9. while_end
+
+A basic block in LLVM IR is a sequence of instructions that has a single entry point and a single exit point with no branches out except at the end. A label followed by a colon (```%label:```) is used to define the beginning of a basic block. We simply count the labels.
