@@ -119,3 +119,9 @@ The program has 9 basic blocks. The blocks consist of the following:
 9. while_end
 
 A basic block in LLVM IR is a sequence of instructions that has a single entry point and a single exit point with no branches out except at the end. A label followed by a colon (```%label:```) is used to define the beginning of a basic block. We simply count the labels.
+
+### Question 2
+
+- How do you handle division by zero? Do you produce code for checking that the divisor is non-zero? Why?
+
+Division by zero is inherently prevented by the loop logic. Since ```j``` starts at 1 and is incremented by 1 in each iteration, the loop will never reach a point where ```j``` is zero. Furthermore, the condition ```j < i``` ensures that ```j``` is always in a valid range. Finally, the division operation ```%d = srem i32 %i_val_3, %j_val_2``` (```i % j```) in the ```for_body``` block is always safe, because ```j_val_2``` is never zero.
