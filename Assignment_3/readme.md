@@ -125,3 +125,60 @@ A basic block in LLVM IR is a sequence of instructions that has a single entry p
 - How do you handle division by zero? Do you produce code for checking that the divisor is non-zero? Why?
 
 Division by zero is inherently prevented by the loop logic. Since ```j``` starts at 1 and is incremented by 1 in each iteration, the loop will never reach a point where ```j``` is zero. Furthermore, the condition ```j < i``` ensures that ```j``` is always in a valid range. Finally, the division operation ```%d = srem i32 %i_val_3, %j_val_2``` (```i % j```) in the ```for_body``` block is always safe, because ```j_val_2``` is never zero.
+
+### Task 3: Debug ```LLVM--```
+
+We are given the following Dolphin program:
+
+```C#
+int rec_fun(acc : int, n : int){
+  if(n > 0)
+    return rec_fun(acc + 2, n - 1);
+  return acc;
+}
+```
+
+It is translated to ```LLVM--``` with a buggy compiler and produces the following code:
+
+```llvm
+define i64 @rec_fun (i64 %acc, i64 %n) {
+ %n6 = alloca i64
+ %acc5 = alloca i64
+ store i64 %acc, i64* %acc5
+ store i64 %n, i64* %n6
+ %load_local_var7 = load i64, i64* %n6
+ %arith_comp_op8 = icmp slt i64 %load_local_var7, 0 ; The identified bug is here
+ br i1 %arith_comp_op8, label %ifthenelse_true_branch9, label %ifthenelse_false_branch10
+ifthenelse_true_branch9:
+ %load_local_var12 = load i64, i64* %acc5
+ %arith_bin_op13 = add i64 %load_local_var12, 2
+ %load_local_var14 = load i64, i64* %n6
+ %arith_bin_op15 = sub i64 %load_local_var14, 1
+ %call16 = call i64 @rec_fun (i64 %arith_bin_op13, i64 %arith_bin_op15)
+ ret i64 %call16
+after_return17:
+ br label %ifthenelse_merge11
+ifthenelse_false_branch10:
+ br label %ifthenelse_merge11
+ifthenelse_merge11:
+ %load_local_var18 = load i64, i64* %acc5
+ ret i64 %load_local_var18
+after_return19:
+ unreachable
+}
+```
+
+We are to identify the issue in the translated code which leads to a crash with segmentation fault if the function is called with parameters ```rec_fun(0, -10)```.
+
+In the Dolphin code, the base case is when ```n``` is less than or equal to zero, where it simply returns the acc. The recursive case is when ```n``` is greater than zero, where it calls itself with ```acc + 2``` and ```n - 1```.
+
+Since the function is called with ```rec_fun(0, -10)```, the base case should be reached immediately and the function should return 0. However, the translated code does not handle the base case correctly. The issue is in the following lines:
+
+```llvm
+%arith_comp_op8 = icmp slt i64 %load_local_var7, 0
+br i1 %arith_comp_op8, label %ifthenelse_true_branch9, label %ifthenelse_false_branch10
+```
+
+```icmp slt i64 %load_local_var7, 0``` compares if ```n``` is less than zero, which is incorrect. In the original Dolphin code, the condition is ```if(n > 0)```, so the correct comparison should be ```icmp sgt i64 %load_local_var7, 0```.
+
+The issue leads to an infinite recursion because the base case is never reached, and thus the stack overflows and the program crashes with a segmentation fault.
