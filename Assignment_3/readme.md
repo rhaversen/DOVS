@@ -188,3 +188,9 @@ The issue leads to an infinite recursion because the base case is never reached,
 - Make an educated guess as to what the compiler has done wrong to produce such a buggy code (this is about the bug in the compiler that leads to the bug in the code of Task 3).
 
 One possibility is that compiler misinterprets the comparison operator. It incorrectly maps the ```>``` operator to ```<```. In this case, the fix could be as simple as fixing the mapping of a switch case in the compiler code.
+
+### Question 6
+
+- Find at least one other way a subtle mistake in the code generation phase of the compiler can cause a segmentation fault in a program like the one above.
+
+Another possible compiler bug which leads to segnemtation fault could be misordering the operands instead of accidentally flipping the comparison operator. This would also lead to an infinite recursion and stack overflow.
