@@ -81,3 +81,23 @@ The code can be run in an online playground like ```https://www.programiz.com/ja
 ```
 
 This resembles the given output in the task description which validates that the code is working as expected.
+
+## Task 2: Translating to ```LLVM--```
+
+The task is to translate the same code to ```LLVM--```. The translated code is given in ```perfect.ll``` along with comments explaining the code.
+
+To compile, link and run the code, the following commands can be used:
+
+```bash
+clang perfect.ll main.c
+./a.out
+```
+
+The output will be the same as in the previous task:
+
+```
+6: perfect
+28: perfect
+496: perfect
+8128: perfect
+```
