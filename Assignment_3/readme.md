@@ -182,3 +182,9 @@ br i1 %arith_comp_op8, label %ifthenelse_true_branch9, label %ifthenelse_false_b
 ```icmp slt i64 %load_local_var7, 0``` compares if ```n``` is less than zero, which is incorrect. In the original Dolphin code, the condition is ```if(n > 0)```, so the correct comparison should be ```icmp sgt i64 %load_local_var7, 0```.
 
 The issue leads to an infinite recursion because the base case is never reached, and thus the stack overflows and the program crashes with a segmentation fault.
+
+### Question 5
+
+- Make an educated guess as to what the compiler has done wrong to produce such a buggy code (this is about the bug in the compiler that leads to the bug in the code of Task 3).
+
+One possibility is that compiler misinterprets the comparison operator. It incorrectly maps the ```>``` operator to ```<```. In this case, the fix could be as simple as fixing the mapping of a switch case in the compiler code.
